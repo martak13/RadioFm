@@ -1,0 +1,405 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden;
+    height: 100vh;
+}
+
+html {
+    /* height: 100vh; */
+    overflow: hidden;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&display=swap");
+
+.wrapper {
+    display: flex;
+    overflow-y: scroll;
+    flex-direction: column;
+    scroll-snap-type: y mandatory;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+section {
+    height: 100vh;
+    width: 100%;
+    flex: none;
+    position: relative;
+}
+
+.player {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.player__carousel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.player__main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+    z-index: 200;
+    width: 100%;
+    pointer-events: none;
+}
+
+.main__info {
+    width: 60%;
+}
+
+.main__info > * {
+    font-family: "Montserrat", sans-serif;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.info__name {
+    font-size: 46px;
+}
+
+.info__author {
+    font-size: 32px;
+}
+
+.info__next {
+    font-size: 24px;
+    margin-bottom: 3%;
+}
+
+#Play.pause {
+    background-image: url(img/pause.svg);
+}
+
+.volume__container {
+    display: flex;
+    padding: 10px 20px;
+    background-color: white;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 30px;
+}
+
+.mute {
+    background-image: url(img/volume.svg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 25px;
+    margin-right: 15px;
+    cursor: pointer;
+    pointer-events: all;
+}
+
+.muted {
+    background-image: url(img/mute.svg);
+}
+
+.headphones-img {
+    height: calc(10vw + 60px);
+}
+
+.phones {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 40%;
+}
+
+.phones__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 10%;
+}
+
+#Play {
+    background-image: url(img/play.svg);
+    height: calc(5vw + 30px);
+    width: calc(5vw + 30px);
+    background-repeat: no-repeat;
+    background-size: 50% 50%;
+    background-position: center;
+    position: absolute;
+    bottom: 0;
+    border: 0.2vw solid white;
+    border-radius: 50%;
+    pointer-events: all;
+    cursor: pointer;
+}
+
+input[type="range"] {
+    pointer-events: all;
+}
+
+input[type="range"] {
+    overflow: hidden;
+    width: 150px;
+    -webkit-appearance: none;
+    background-color: #000;
+    border-radius: 20px;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    height: 10px;
+    -webkit-appearance: none;
+    /* color:ff; */
+    margin-top: -1px;
+    padding: 0 3px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    width: 20px;
+    -webkit-appearance: none;
+    height: 20px;
+    border-radius: 50%;
+    margin-top: -5px;
+    /* cursor: ew-resize; */
+    background: #fff;
+    /* box-shadow: -80px 0 0 80px #; */
+}
+
+.carousel__controls {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    width: 100%;
+    height: 100%;
+}
+
+.controls__arrow {
+    height: 35px;
+    cursor: pointer;
+}
+
+.controls__arrow_left {
+    transform: rotate(180deg);
+}
+
+.controls__arrow > img {
+    height: inherit;
+}
+
+.carousel__screen {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.screen__upper {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    background-image: url("./img/1-min-min.jpg");
+    background-size: cover;
+    background-position-x: 50%;
+    background-position-y: 50%;
+    background-repeat: no-repeat;
+}
+.screen__under {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    width: 100%;
+    height: 100%;
+    /* background-image: none; */
+    background-size: cover;
+    background-position-x: 50%;
+    background-position-y: 50%;
+    background-repeat: no-repeat;
+}
+
+.screen__tint {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 11;
+}
+
+.partners {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px;
+}
+
+.partners__partner img {
+    height: calc(6vw + 30px);
+    filter: grayscale(1);
+    transition: 0.3s;
+}
+
+.partners__partner img:hover {
+    filter: none;
+}
+
+.partners__partner {
+    padding: 15px;
+}
+
+.partners__row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 5vh 0;
+    width: 80%;
+}
+
+.partners__column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.partners h5 {
+    font-size: 36px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.socials {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 100vh;
+}
+
+.socials__social {
+    width: 50%;
+    height: 33.3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    position: relative;
+    cursor: pointer;
+}
+
+.socials__social img {
+    height: 32px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.socials__social_facebook {
+    background-color: #3b569e;
+}
+
+.socials__social_instagram {
+    background-color: #8034b0;
+}
+
+.socials__social_soundcloud {
+    background-color: #ff8035;
+}
+
+.socials__social_twitter {
+    background-color: #2daae2;
+}
+
+.socials__social_youtube {
+    width: 100%;
+    height: 33.4%;
+    background-color: #e42d26;
+}
+
+.contacts {
+    width: 100%;
+    height: fit-content;
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+    flex-direction: column;
+    margin-top: -100px;
+}
+
+.contacts__contact {
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 860px) {
+    .partners__row {
+        flex-direction: column;
+        margin: 0;
+    }
+    .partners__column {
+        flex-direction: row;
+    }
+}
+
+@media screen and (max-width:980px) {
+    .player__main{
+        flex-direction: column;
+        padding-top: 5%;
+    }
+
+    .phones{
+        justify-content: center;
+        padding: 0;
+        margin-bottom: 5%;
+    }
+
+    .main__info{
+        margin-top: 5%;
+    }
+
+    .headphones-img {
+        height: calc(25vw + 60px);
+    }
+
+    #Play{
+        height: calc(15vw + 30px);
+        width: calc(15vw + 30px);
+    }
+    
+}
